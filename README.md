@@ -22,3 +22,21 @@ Build a scaled-down, **decoder-only Transformer** (GPT-2 style) from scratch usi
 > **Note:** You have to attempt Task-1 before moving to Task 2.
 
 Full details, milestones, and submission guidelines are in the [Task 1 folder](./Task1/).
+
+# Task 2 (Optional)
+
+## Fine-Tune GPT-2: The "Instruction Follower" (Supervised Fine-Tuning)
+
+Take the pretrained **[GPT-2 base (124M)](https://huggingface.co/openai-community/gpt2)** model from Hugging Face and fine-tune it on the **[Alpaca](https://huggingface.co/datasets/tatsu-lab/alpaca)** instruction-following dataset. The goal is to transform a generic language model into an assistant that can follow instructions and generate helpful responses.
+
+### Core Deliverables
+1. **Dataset Preparation** — Load and format the Alpaca dataset using the standard prompt template.
+2. **Model Loading** — Load the pretrained GPT-2 model and tokenizer from Hugging Face.
+3. **Fine-Tuning Loop** — Train (SFT) the model with Cross-Entropy Loss on the formatted instruction data.
+4. **Inference** — Generate assistant-style responses from new instruction prompts.
+
+Full details, milestones, and submission guidelines are in the [Task 2 folder](./Task2/).
+
+
+# Deadlines
+Deadline for submission of both Task 1 and Task 2 will be **10th April EOD**, via a google form that will be circulated soon.
