@@ -128,7 +128,7 @@ class Block(nn.Module):
         return x
 
 
-class BigramLanguageModel(nn.Module):
+class Transformer(nn.Module):
 
     def __init__(self):
         super().__init__()
@@ -183,12 +183,12 @@ class BigramLanguageModel(nn.Module):
         return idx
 
 
-model = BigramLanguageModel().to(device)
+model = Transformer().to(device)
 print(f"Model size: {sum(p.numel() for p in model.parameters())/1e6:.2f}M parameters")
 
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=1e-1) 
 
-# LR scheduler gradually reduces LR for better convergence
+# LR scheduler 
 scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=max_iters)
 
 best_val_loss = float('inf')   
@@ -201,7 +201,7 @@ for iter in range(max_iters):
         current_lr = scheduler.get_last_lr()[0]
         print(f"step {iter:>6d} | train loss {losses['train']:.4f} | val loss {losses['val']:.4f} | lr {current_lr:.2e}")
 
-        # Save the best model checkpoint
+        # best model checkpoint
         if losses['val'] < best_val_loss:
             best_val_loss = losses['val']
             torch.save(model.state_dict(), 'best_model.pt')
