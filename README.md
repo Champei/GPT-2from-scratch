@@ -1,42 +1,90 @@
 <img src="Images/cynaptics_logo.jpg" alt="Cynaptics Club Logo" width="150"/>
 
-# Cynaptics Induction Tasks March 2026
+**GPT-2 Language Model** (PyTorch)
 
-We are the Cynaptics Club of IIT Indore, the AI/ML enthusiasts' hub, and we're excited to present you with our induction task!
+A Transformer-based character-level language model built from scratch using PyTorch, inspired by GPT architecture.
+The model is trained to predict the next character in a sequence using masked self-attention and autoregressive generation.
 
-Submission guidelines and detailed explanations for each task can be found in their respective task folders. Best of luck, and we look forward to your innovative solutions!
+## This project demonstrates a complete deep learning pipeline including:
+data preprocessing
+token + positional embeddings
+multi-head self-attention
+feed-forward Transformer blocks
+training loop with optimizer + scheduler
+text generation with temperature and top-k sampling
+Features
+Character-level tokenization
+Multi-head masked self-attention
+6-layer Transformer architecture
+Residual connections + LayerNorm
+GELU activation
+AdamW optimizer
+Cosine learning rate scheduler
+Gradient clipping
+Dropout regularization
+Best model checkpoint saving
+Temperature + top-k text generation
+Model Architecture
+Embedding dimension: 256
+Attention heads: 8
+Transformer layers: 6
+Context window: 128
+Dropout: 0.2
+
+## The model consists of:
+token embeddings
+positional embeddings
+stacked Transformer blocks
+final linear projection to vocabulary logits
+Training
+
+The model is trained on text data using cross-entropy loss for next-character prediction.
+
+## Training optimizations include:
+AdamW
+weight decay
+cosine annealing LR scheduler
+gradient norm clipping
+Text Generation
+
+After training, the model generates text autoregressively, one character at a time.
+
+Supports:
+temperature scaling
+top-k sampling
 
 
-# Task 1
-
-## Make your own GPT: The "Glorified Autocomplete" (GPT-2 Pretraining)
-
-Build a scaled-down, **decoder-only Transformer** (GPT-2 style) from scratch using **PyTorch** and train it on the [Tiny Shakespeare] dataset. The goal is to autocomplete the text — essentially a highly complex autocomplete.**The model architecture should be based on GPT-2 but you are free modify it.**
-
-### Core Deliverables
-1. **Data Loader** — Tokenize the dataset into input/target pairs (shifted by one token).
-2. **Transformer Architecture** — Masked Self-Attention, Multi-Head Attention, Feed-Forward Networks, Positional & Token Embeddings.
-3. **Pretraining Loop** — Train with Cross-Entropy Loss over multiple epochs.
-4. **Text Generation** — Sample from the model's probability distribution to generate Shakespeare-esque text.
-
-> **Note:** You have to attempt Task-1 before moving to Task 2.
-
-Full details, milestones, and submission guidelines are in the [Task 1 folder](./Task1/).
-
-# Task 2 (Optional)
-
-## Fine-Tune GPT-2: The "Instruction Follower" (Supervised Fine-Tuning)
-
-Take the pretrained **[GPT-2 base (124M)](https://huggingface.co/openai-community/gpt2)** model from Hugging Face and fine-tune it on the **[Alpaca](https://huggingface.co/datasets/tatsu-lab/alpaca)** instruction-following dataset. The goal is to transform a generic language model into an assistant that can follow instructions and generate helpful responses.
-
-### Core Deliverables
-1. **Dataset Preparation** — Load and format the Alpaca dataset using the standard prompt template.
-2. **Model Loading** — Load the pretrained GPT-2 model and tokenizer from Hugging Face.
-3. **Fine-Tuning Loop** — Train (SFT) the model with Cross-Entropy Loss on the formatted instruction data.
-4. **Inference** — Generate assistant-style responses from new instruction prompts.
-
-Full details, milestones, and submission guidelines are in the [Task 2 folder](./Task2/).
 
 
-# Deadlines
-Deadline for submission of both Task 1 and Task 2 will be **10th April EOD**, via a google form that will be circulated soon.
+**A Transformer-based instruction-following language model fine-tuned from pretrained GPT-2 using PyTorch and the Stanford Alpaca dataset**.
+
+The model is trained using supervised fine-tuning (SFT) to generate assistant-style responses by predicting the next token in an autoregressive manner.
+
+## This project demonstrates a complete transfer learning pipeline including:
+dataset preprocessing and prompt formatting
+BPE tokenization
+pretrained GPT-2 loading
+manual training loop with CrossEntropyLoss
+optimizer-based fine-tuning
+
+## Features
+
+Instruction-response prompt formatting
+BPE tokenization using Hugging Face Transformers
+Pretrained GPT-2 base model (124M)
+Manual causal language model training loop
+Shifted CrossEntropyLoss
+AdamW optimizer
+
+## Training
+
+The model is fine-tuned on the Alpaca instruction dataset using cross-entropy loss for next-token prediction.
+
+Training optimizations include:
+AdamW optimizer
+weight decay
+manual backpropagation
+gradient-based weight updates
+
+
+
