@@ -1,0 +1,59 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights: 100%|████████████████████████████████████| 148/148 [00:00<00:00, 20032.82it/s]
+Epoch 1: 100%|████████████████████████████████| 13001/13001 [15:26<00:00, 14.04it/s, loss=1.57]
+Epoch 1 Average Loss: 1.5559
+Epoch 2: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13001/13001 [11:57<00:00, 18.11it/s, loss=1]
+Epoch 2 Average Loss: 1.3907
+Epoch 3:  61%|█████████████████████████████████████████████████████████████████████████████████                                                     | 7868/13001 [07:14<04:43, 18.12it/s, loss=1Epoch 3:  61%|█████████████████████████████████████████████████████████████████████████████████                                                     | 7868/13001 [07:14<04:43, 18.12it/s, loss=1Epoch 3:  61%|█████████████████████████████████████████████████████████████████████████████████                                                     | 7870/13001 [07:14<04:43, 18.12it/s, loss=1Epoch 3:  61%|████████████████████████████████████████████████████████████████████████████████▌                                                    | 7870/13001 [07:14<04:43, 18.12it/s, loss=1.Epoch 3:  61%|████████████████████████████████████████████████████████████████████████████████▌                                                    | 7870/13001 [07:14<04:43, 18.12it/s, loss=1.Epoch 3:  61%|████████████████████████████████████████████████████████████████████████████████▌                                                    | 7872/13001 [07:14<04:43, 18.11it/s, loss=1.Epoch 3:  61%|███████████████████████████████████████████████████████████████████████████████▉                                                    | 7872/13001 [07:14<04:43, 18.11it/s, loss=0.8Epoch 3:  61%|███████
+Epoch 1: 100%|████████████████████████████████| 13001/13001 [15:26<00:00, 14.04it/s, loss=1.57]
+Epoch 1 Average Loss: 1.5559
+Epoch 2: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13001/13001 [11:57<00:00, 18.11it/s, loss=1]
+Epoch 2 Average Loss: 1.3907
+Epoch 3:  61%|█████████████████████████████████████████████████████████████████████████████████                                                     | 7868/13001 [07:14<04:43, 18.12it/s, loss=1Epoch 3:  61%|█████████████████████████████████████████████████████████████████████████████████                                                     | 7868/13001 [07:14<04:43, 18.12it/s, loss=1Epoch 3:  61%|█████████████████████████████████████████████████████████████████████████████████                                                     | 7870/13001 [07:14<04:43, 18.12it/s, loss=1Epoch 3:  61%|████████████████████████████████████████████████████████████████████████████████▌                                                    | 7870/13001 [07:14<04:43, 18.12it/s, loss=1.Epoch 3:  61
+Epoch 2: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13001/13001 [11:57<00:00, 18.11it/s, loss=1]
+Epoch 2 Average Loss: 1.3907
+Epoch 3:  61%|█████████████████████████████████████████████████████████████████████████████████                                                     | 7868/13001 [07:14<04:43, 18.12it/s, loss=1Epoch 3:  61%|█████████████████████████████████████████████████████████████████████████████████                                                     | 7868/13001 [07:14<04:43, 18.12it/s, loss=1Epoch 3:  61%|█████████████████████████████████████████████████████████████████████████████████                                                     | 7870/13001 [07:14<04:43, 18.12it/s, loss=1Epoch 3:  61%|████████████████████████████████████████████████████████████████████████████████▌                                                    | 7870/13001 [07:14<04:43, 18.12it/s, loss=1.Epoch 3:  61
+ 61%|████████████████████████████████████████████████████████████████████████████████▌                                                    | 7870/13001 [07:14<04:43, 18.12it/s, loss=1.Epoch 3:  61
+████████████████████████████████████████████████████████████████████████▉                                                    | 7872/13001 [07:14<04:43, 18.11it/s, loss=0.8Epoch 3:  61%|██████████Epoch 3:  85%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                   | 11056/13001 [10:39<0Epoch 3:  85%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                   | 11056/13001 [10:39<01:47, 18.09it/s, loss=1.Epoch 3:  85%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                   | 11058/13001 [10:39<01:47, 18.09it/s, loss=1.Epoch 3:  85%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                   | 11058/13001 [10:39<01:47, 18.09it/s, loss=0.8Epoch 3:  85%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████                    | 11058/13001 [10:39<01:47, 18.09it/s, loss=1Epoch 3:  85%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                   | 11060/13001 [10:39<01:47, 18.09it/s, loss=1Epoch 3:  85%|████████████████████████████Epoch 3: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 13001/13001 [12:27<00:00, 17.40it/s, loss=1.35]Epoch 3 Average Loss: 1.2905
+Writing model shards: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.11it/s]
+Training complete
+
+
+Loading weights: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 148/148 [00:00<00:00, 18725.70it/s]
+Below is an instruction that describes a task. Write a response that appropriately completes the request.
+
+### Instruction:
+Explain machine learning in simple words
+
+### Response:
+Machine learning is a form of artificial intelligence that enables computers to learn from data without explicit programming. It is based on the idea that computers can learn from data without being explicitly programmed, and uses algorithms to make decisions and make decisions based on the data. This enables machines to make more accurate predictions, identify patterns and correlations, and make decisions based on the data. Machine learning is used in a variety of fields, from healthcare to finance, to finance and transportation. It can also be used in a variety of fields, from healthcare to finance, to finance and transportation. Machine learning is becoming increasingly popular in today's world and is becoming increasingly important in many fields such as finance, healthcare, and transportation. It is an important part of artificial intelligence and is becoming increasingly important in many industries, from finance to finance, and
+
+
+Below is an instruction that describes a task. Write a response that appropriately completes the request.
+
+### Instruction:
+Write a short poem about rain
+
+### Response:
+The sky is so clear and sunny,
+A blanket of colors of beauty and peace.
+The clouds have all around,
+Bringing life to the land.
+The sun is shining through the trees,
+A beautiful sight to behold.
+
+The sky is a blanket of beauty,
+A beautiful sight to behold.
+The clouds have all around,
+Bringing life to the land.
+The sun is shining through the trees,
+A beautiful sight to behold.
+
+The rain is a beautiful sight,
+A beautiful sight to behold.
+The clouds have all around,
+Bringing life to the land.
+The sun is shining through the trees,
+A beautiful sight to behold.
+The rain is a beautiful sight,
+A beautiful sight to behold.
