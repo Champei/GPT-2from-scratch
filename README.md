@@ -1,11 +1,11 @@
 <img src="Images/cynaptics_logo.jpg" alt="Cynaptics Club Logo" width="150"/>
 
-**GPT-2 Language Model** (PyTorch)
+## GPT-2 Language Model (PyTorch)
 
 A Transformer-based character-level language model built from scratch using PyTorch, inspired by GPT architecture.
 The model is trained to predict the next character in a sequence using masked self-attention and autoregressive generation.
 
-## This project demonstrates a complete deep learning pipeline including:
+**This project demonstrates a complete deep learning pipeline including:**
 data preprocessing
 token + positional embeddings
 multi-head self-attention
@@ -31,7 +31,7 @@ Transformer layers: 6
 Context window: 128
 Dropout: 0.2
 
-## The model consists of:
+**The model consists of:**
 token embeddings
 positional embeddings
 stacked Transformer blocks
@@ -40,7 +40,7 @@ Training
 
 The model is trained on text data using cross-entropy loss for next-character prediction.
 
-## Training optimizations include:
+**Training optimizations include:**
 AdamW
 weight decay
 cosine annealing LR scheduler
@@ -56,18 +56,18 @@ top-k sampling
 
 
 
-**A Transformer-based instruction-following language model fine-tuned from pretrained GPT-2 using PyTorch and the Stanford Alpaca dataset**.
+## A Transformer-based instruction-following language model fine-tuned from pretrained GPT-2 using PyTorch and the Stanford Alpaca dataset.
 
 The model is trained using supervised fine-tuning (SFT) to generate assistant-style responses by predicting the next token in an autoregressive manner.
 
-## This project demonstrates a complete transfer learning pipeline including:
+**This project demonstrates a complete transfer learning pipeline including:**
 dataset preprocessing and prompt formatting
 BPE tokenization
 pretrained GPT-2 loading
 manual training loop with CrossEntropyLoss
 optimizer-based fine-tuning
 
-## Features
+**Features**
 
 Instruction-response prompt formatting
 BPE tokenization using Hugging Face Transformers
@@ -76,7 +76,7 @@ Manual causal language model training loop
 Shifted CrossEntropyLoss
 AdamW optimizer
 
-## Training
+**Training**
 
 The model is fine-tuned on the Alpaca instruction dataset using cross-entropy loss for next-token prediction.
 
