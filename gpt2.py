@@ -3,18 +3,17 @@ import torch.nn as nn
 from torch.nn import functional as F
 
 # HYPERPARAMETERS  
-
-batch_size  = 64          #  more stable gradient estimates
+batch_size  = 64          #  stable gradient estimates
 block_size  = 128         #  longer context window
 max_iters   = 50000       #  more training
-eval_interval = 500       #  less frequent eval overhead
-learning_rate = 3e-4      # better for AdamW
+eval_interval = 500      
+learning_rate = 3e-4      # AdamW
 device      = 'cuda' if torch.cuda.is_available() else 'cpu'
 eval_iters  = 200
-n_embd      = 256         #  much richer representations
+n_embd      = 256         
 n_head      = 8           #  more attention heads
 n_layer     = 6           #  deeper network
-dropout     = 0.2         # regularization to reduce overfitting
+dropout     = 0.2         #  to reduce overfitting
 
 torch.manual_seed(1337)
 
@@ -56,7 +55,6 @@ def estimate_loss():
     model.train()
     return out
 
-
 class Head(nn.Module):
 
     def __init__(self, head_size):
@@ -82,7 +80,6 @@ class Head(nn.Module):
         out = wei @ v          # (B,T,head_size)
         return out
 
-
 class MultiHeadAttention(nn.Module):
 
     def __init__(self, num_heads, head_size):
@@ -95,7 +92,6 @@ class MultiHeadAttention(nn.Module):
         out = torch.cat([h(x) for h in self.heads], dim=-1)
         out = self.dropout(self.proj(out))
         return out
-
 
 class FeedForward(nn.Module):
 
@@ -111,7 +107,6 @@ class FeedForward(nn.Module):
     def forward(self, x):
         return self.net(x)
 
-
 class Block(nn.Module):
 
     def __init__(self, n_embd, n_head):
@@ -126,10 +121,8 @@ class Block(nn.Module):
         x = x + self.sa(self.ln1(x))   
         x = x + self.ffwd(self.ln2(x))
         return x
-
-
+        
 class Transformer(nn.Module):
-
     def __init__(self):
         super().__init__()
         self.token_embedding_table    = nn.Embedding(vocab_size, n_embd)
@@ -151,12 +144,12 @@ class Transformer(nn.Module):
     def forward(self, idx, targets=None):
         B, T = idx.shape
 
-        tok_emb = self.token_embedding_table(idx)                            # (B,T,C)
-        pos_emb = self.position_embedding_table(torch.arange(T, device=device))  # (T,C)
+        tok_emb = self.token_embedding_table(idx)                            
+        pos_emb = self.position_embedding_table(torch.arange(T, device=device)) 
         x = tok_emb + pos_emb
         x = self.blocks(x)
         x = self.ln_f(x)
-        logits = self.lm_head(x)   # (B,T,vocab_size)
+        logits = self.lm_head(x)   # (B,T,vocabsize)
 
         loss = None
         if targets is not None:
@@ -181,8 +174,7 @@ class Transformer(nn.Module):
             idx_next = torch.multinomial(probs, num_samples=1)
             idx      = torch.cat((idx, idx_next), dim=1)
         return idx
-
-
+        
 model = Transformer().to(device)
 print(f"Model size: {sum(p.numel() for p in model.parameters())/1e6:.2f}M parameters")
 
@@ -215,7 +207,6 @@ for iter in range(max_iters):
     torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)  # prevents exploding gradients
     optimizer.step()
     scheduler.step()   # update LR
-
 
 model.load_state_dict(torch.load('best_model.pt'))   # generate best, not last
 
