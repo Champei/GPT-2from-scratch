@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.nn import functional as F
+from tokenizers import Tokenizer, models, trainers, pre_tokenizers
 
 # HYPERPARAMETERS  
 batch_size  = 64          #  stable gradient estimates
@@ -21,13 +22,21 @@ torch.manual_seed(1337)
 with open('input.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 
-chars = sorted(list(set(text)))
-vocab_size = len(chars)
+from tokenizers import Tokenizer, models, trainers, pre_tokenizers
 
-stoi  = { ch:i for i,ch in enumerate(chars) }
-itos  = { i:ch for i,ch in enumerate(chars) }
-encode = lambda s: [stoi[c] for c in s]
-decode = lambda l: ''.join([itos[i] for i in l])
+# BPE tokenizer
+tokenizer = Tokenizer(models.BPE())
+tokenizer.pre_tokenizer = pre_tokenizers.ByteLevel()
+
+trainer = trainers.BpeTrainer(
+    vocab_size=5000,
+    special_tokens=["<PAD>", "<UNK>"]
+)
+tokenizer.train(["input.txt"], trainer)
+vocab_size = tokenizer.get_vocab_size()
+
+encode = lambda s: tokenizer.encode(s).ids
+decode = lambda ids: tokenizer.decode(ids)
 
 data = torch.tensor(encode(text), dtype=torch.long)
 n = int(0.9 * len(data))
@@ -67,8 +76,8 @@ class Head(nn.Module):
 
     def forward(self, x):
         B, T, C = x.shape
-        k = self.key(x)    # (B,T,head_size)
-        q = self.query(x)  # (B,T,head_size)
+        k = self.key(x)    
+        q = self.query(x)  
 
         # dot-product attention
         wei = q @ k.transpose(-2, -1) * C**-0.5  # (B,T,T)
@@ -76,8 +85,8 @@ class Head(nn.Module):
         wei = F.softmax(wei, dim=-1)
         wei = self.dropout(wei)
 
-        v   = self.value(x)   # (B,T,head_size)
-        out = wei @ v          # (B,T,head_size)
+        v   = self.value(x)   
+        out = wei @ v          
         return out
 
 class MultiHeadAttention(nn.Module):
