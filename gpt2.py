@@ -23,19 +23,14 @@ with open('input.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 
 from tokenizers import Tokenizer, models, trainers, pre_tokenizers
+from transformers import AutoTokenizer
 
-# BPE tokenizer
-tokenizer = Tokenizer(models.BPE())
-tokenizer.pre_tokenizer = pre_tokenizers.ByteLevel()
+model_name = "openai-community/gpt2"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-trainer = trainers.BpeTrainer(
-    vocab_size=5000,
-    special_tokens=["<PAD>", "<UNK>"]
-)
-tokenizer.train(["input.txt"], trainer)
-vocab_size = tokenizer.get_vocab_size()
+vocab_size = tokenizer.vocab_size
 
-encode = lambda s: tokenizer.encode(s).ids
+encode = lambda s: tokenizer.encode(s)
 decode = lambda ids: tokenizer.decode(ids)
 
 data = torch.tensor(encode(text), dtype=torch.long)
