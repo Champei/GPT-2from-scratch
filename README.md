@@ -24,12 +24,6 @@ Gradient clipping
 Dropout regularization
 Best model checkpoint saving
 Temperature + top-k text generation
-Model Architecture
-Embedding dimension: 256
-Attention heads: 8
-Transformer layers: 6
-Context window: 128
-Dropout: 0.2
 
 **The model consists of:**
 token embeddings
